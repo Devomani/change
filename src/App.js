@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+export const App = () => {
+  const [Color, setColor] = useState("");
+  const [Change, setChange] = useState();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Here's a Magical Color Changer</h1>
+      <div className="color-background" style={{ boxShadow: `5px 5px 20px 10px ${Color}`, backgroundColor: Color }}></div>
+      <input type="text" placeholder="Type your color" onChange={(e) => setChange(e.target.value)} />
+      <button onClick={() => setColor(Change)}>SELECT</button>
     </div>
   );
-}
+};
 
 export default App;
